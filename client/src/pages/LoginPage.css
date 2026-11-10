@@ -1,0 +1,56 @@
+/* styles for login page */
+@import "../style.css";
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.login-form img {
+  max-width: 50px;
+  max-height: 50px;
+  margin: 20px auto 10px;
+}
+
+.login-form p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  margin-top: 10px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.login-form button {
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--primary-accent);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: var(--primary-accent);
+  filter: brightness(0.9);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.error {
+  color: var(--error-accent);
+}
