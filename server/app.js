@@ -1,6 +1,7 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import db from "./db.js";
 
 const app = express();
 const serverDirectory = path.dirname(fileURLToPath(import.meta.url));
