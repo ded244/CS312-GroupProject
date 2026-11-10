@@ -1,1 +1,26 @@
 /* Main Stylesheet */
+/* root */
+:root {
+  --primary-accent: #3498db;
+  --error-accent: #dc3545;
+  --black: #000000;
+  --white: #ffffff;
+}
+
+/* header */
+header {
+  padding: 10px;
+  border-bottom: 1px solid var(--black);
+}
+
+header img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+/* footer */
+footer {
+  border-top: 1px solid var(--black);
+  text-align: center;
+  padding: 10px;
+}
