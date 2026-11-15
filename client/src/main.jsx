@@ -7,19 +7,22 @@ import "./style.css";
 
 /* header */
 function Header() {
-  return (
-    <header>
-      <img src="/bank.png" alt="Logo" />
-    </header>
-  );
-}
+  const showNavigation = !["/", "/login"].includes(window.location.pathname);
 
-/* footer */
-function Footer() {
   return (
-    <footer>
-      <p>Test Footer</p>
-    </footer>
+    <header className="site-header">
+      <a href="/accounts" className="site-header__brand" aria-label="Accounts home">
+        <img src="/bank.png" alt="" />
+      </a>
+      {showNavigation && (
+        <nav className="site-header__nav" aria-label="Main navigation">
+          <a href="/accounts" aria-current="page">Accounts</a>
+          <span>Payments</span>
+          <span>Transfers</span>
+          <span>Statements</span>
+        </nav>
+      )}
+    </header>
   );
 }
 
@@ -28,7 +31,6 @@ function App() {
     <>
       <Header />
       <AppContent />
-      <Footer />
     </>
   );
 }
@@ -40,10 +42,14 @@ function AppContent() {
     return <LoginPage />;
   }
   if (path === "/accounts") {
-    return <AccountPage />;
+    return <AccountOverview />;
   }
   if (path === "/accounts/overview") {
     return <AccountOverview />;
+  }
+  const accountPath = path.match(/^\/accounts\/([^/]+)\/([^/]+)\/?$/);
+  if (accountPath) {
+    return <AccountPage accountNumber={decodeURIComponent(accountPath[1])} routingNumber={decodeURIComponent(accountPath[2])} />;
   }
   return <main><h1>Page not found</h1><a href="/login">Return to login</a></main>;
 }

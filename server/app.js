@@ -53,9 +53,43 @@ app.post("/api/login", async (req, res) => {
   }
 });
 
+app.get("/api/accounts/:accountNumber/:routingNumber", async (req, res) => {
+  if (!req.session.userId) {
+    return res.status(401).json({ error: "Sign in to view your account." });
+  }
+
+  try {
+    const { accountNumber, routingNumber } = req.params;
+    const accountResult = await db.query(
+      `SELECT account_number, routing_number, account_name, account_type, balance
+       FROM accounts
+       WHERE account_number = $1 AND routing_number = $2 AND user_id = $3`,
+      [accountNumber, routingNumber, req.session.userId]
+    );
+
+    if (!accountResult.rows[0]) {
+      return res.status(404).json({ error: "Account not found." });
+    }
+
+    const transactionsResult = await db.query(
+      `SELECT transaction_id, transaction_type, amount, location_of_purchase,
+              category, transaction_date
+       FROM transactions
+       WHERE account_number = $1 AND routing_number = $2
+       ORDER BY transaction_date DESC NULLS LAST, transaction_id DESC`,
+      [accountNumber, routingNumber]
+    );
+
+    return res.json({ account: accountResult.rows[0], transactions: transactionsResult.rows });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Could not load this account." });
+  }
+});
+
 // serve react app
 const sendReactApp = (req, res) => {
   res.sendFile(path.join(clientBuildDirectory, "index.html"));
 };
-app.get(["/", "/banking", "/login", "/accounts", "/accounts/:accountId"], sendReactApp);
+app.get(["/", "/banking", "/login", "/accounts", "/accounts/overview", "/accounts/:accountNumber/:routingNumber"], sendReactApp);
 export default app;
