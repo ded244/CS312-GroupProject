@@ -48,10 +48,6 @@ export default function LoginPage() {
           </div>
         </form>
       </div>
-
-      {/* test links for navigation */}
-      <a href="/accounts">Go to Account Page</a>
-      <a href="/accounts/overview">Go to Account Overview</a>
     </>
   );
 }
