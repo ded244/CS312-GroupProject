@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import LoginPage from "./pages/LoginPage.jsx";
 import AccountPage from "./pages/AccountPage.jsx";
-import AccountOverview from "./AccountOverview.jsx";
+import AccountOverview from "./pages/AccountOverview.jsx";
 import "./style.css";
 
 /* header */
@@ -42,9 +42,6 @@ function AppContent() {
     return <LoginPage />;
   }
   if (path === "/accounts") {
-    return <AccountOverview />;
-  }
-  if (path === "/accounts/overview") {
     return <AccountOverview />;
   }
   const accountPath = path.match(/^\/accounts\/([^/]+)\/([^/]+)\/?$/);
