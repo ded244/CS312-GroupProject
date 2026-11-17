@@ -1,0 +1,78 @@
+.account-overview {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.account-overview__page-title {
+  margin: 0 0 20px;
+  font-size: 32px;
+}
+
+.account-overview__accounts {
+  max-width: 800px;
+}
+
+.account-overview__section-title {
+  margin: 0 0 15px;
+  color: #444;
+  font-size: 25px;
+}
+
+.account-overview__account-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 15px;
+  padding: 18px 20px;
+  border: 2px solid #666;
+  border-radius: 15px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.account-overview__account-card:hover,
+.account-overview__account-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-overview__account-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.account-overview__account-name {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.account-overview__account-type,
+.account-overview__account-number {
+  display: block;
+  margin-top: 6px;
+  color: #555;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.account-overview__account-balance {
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.account-overview__error {
+  color: var(--error-accent);
+}
+
+@media (max-width: 768px) {
+  .account-overview__account-card {
+    flex-wrap: wrap;
+  }
+}
