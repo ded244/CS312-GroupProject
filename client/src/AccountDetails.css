@@ -1,0 +1,255 @@
+.account-overview {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.account-overview__page-title {
+  margin: 0 0 20px;
+  font-size: 32px;
+}
+
+.account-overview__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.account-overview__left {
+  flex: 2;
+  min-width: 300px;
+}
+
+.account-overview__right {
+  flex: 1;
+  min-width: 250px;
+}
+
+.account-overview__summary-text {
+  margin: 0 0 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.account-overview__section-title {
+  margin: 0 0 15px;
+  color: #444;
+  font-size: 25px;
+}
+
+.account-overview__account-card,
+.account-overview__details-card,
+.account-overview__transaction-card,
+.account-overview__insights-card {
+  border: 2px solid #666;
+  background: #fff;
+}
+
+.account-overview__account-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 15px;
+  padding: 18px 20px;
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.account-overview__account-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-overview__account-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.account-overview__account-color {
+  width: 8px;
+  height: 50px;
+  border-radius: 6px;
+}
+
+.account-overview__account-color--checking {
+  background: #1976d2;
+}
+
+.account-overview__account-color--savings {
+  background: #2e7d32;
+}
+
+.account-overview__account-name {
+  margin: 0 0 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.account-overview__account-info .account-overview__summary-text {
+  margin: 0;
+}
+
+.account-overview__account-balance {
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.account-overview__account-arrow {
+  color: #777;
+  font-size: 20px;
+}
+
+.account-overview__details-card {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.account-overview__details-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.account-overview__details-row:last-child {
+  margin-bottom: 0;
+}
+
+.account-overview__details-label {
+  font-weight: 600;
+}
+
+.account-overview__details-value {
+  color: #555;
+  text-align: right;
+}
+
+.account-overview__transactions {
+  margin-top: 25px;
+}
+
+.account-overview__transaction-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 10px;
+}
+
+.account-overview__transaction-name {
+  color: #444;
+}
+
+.account-overview__transaction-amount {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.account-overview__transaction-amount--positive {
+  color: #4caf50;
+}
+
+.account-overview__transaction-amount--negative {
+  color: #555;
+}
+
+.account-overview__insights-card {
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.account-overview__insights-title {
+  margin: 0 0 10px;
+  color: #666;
+}
+
+.account-overview__month-total {
+  margin: 0 0 20px;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.account-overview__chart {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 50%;
+  background: conic-gradient(
+    #1565c0 0% 35%,
+    #42a5f5 35% 55%,
+    #fdd835 55% 75%,
+    #43a047 75% 90%,
+    #cfd8dc 90% 100%
+  );
+}
+
+.account-overview__chart::after {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+}
+
+.account-overview__legend {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.account-overview__legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.account-overview__legend-color {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+.account-overview__button {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #2196f3;
+  border-radius: 10px;
+  background: #fff;
+  color: #2196f3;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.account-overview__button:hover {
+  background: #2196f3;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .account-overview__content {
+    flex-direction: column;
+  }
+
+  .account-overview__left,
+  .account-overview__right {
+    min-width: 0;
+  }
+
+  .account-overview__account-card {
+    flex-wrap: wrap;
+  }
+}

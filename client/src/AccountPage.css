@@ -1,0 +1,141 @@
+.account-details {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
+}
+
+.account-details__back {
+  color: var(--primary-accent);
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.account-details__back:hover {
+  text-decoration: underline;
+}
+
+.account-details h1 {
+  font-size: 34px;
+  font-weight: 400;
+  margin: 18px 0 28px;
+}
+
+.account-details__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 750px;
+}
+
+.account-details__card {
+  border: 2px solid #292929;
+  border-radius: 28px;
+  min-height: 216px;
+  padding: 20px 22px;
+}
+
+.account-details__card h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+
+.account-details__balance {
+  font-size: 36px;
+  margin: 0;
+}
+
+.account-details__info {
+  display: grid;
+  gap: 26px;
+  margin: 0;
+}
+
+.account-details__info div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.account-details__info dt,
+.account-details__info dd {
+  font-size: 18px;
+  margin: 0;
+}
+
+.account-details__info dd {
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.account-details__type {
+  text-transform: capitalize;
+}
+
+.account-details__transactions {
+  max-width: 750px;
+  margin-top: 42px;
+}
+
+.account-details__transactions h2 {
+  font-size: 27px;
+  font-weight: 400;
+  margin: 0 0 18px;
+}
+
+.account-details__list {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.account-details__transaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 2px solid #292929;
+  border-radius: 12px;
+  padding: 13px 18px;
+}
+
+.account-details__transaction strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.account-details__transaction small {
+  display: block;
+  color: #626262;
+  margin-top: 5px;
+}
+
+.account-details__transaction > span {
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.account-details__positive {
+  color: #238344;
+}
+
+.account-details__error {
+  color: var(--error-accent);
+}
+
+@media (max-width: 680px) {
+  .account-details h1 {
+    font-size: 29px;
+  }
+
+  .account-details__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .account-details__card {
+    min-height: 0;
+  }
+}
