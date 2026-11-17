@@ -10,7 +10,7 @@ const clientDirectory = path.join(serverDirectory, "../client");
 const clientBuildDirectory = path.join(clientDirectory, "dist");
 
 app.use(session({
-  secret: 'your-strong-secret',
+  secret: process.env.SESSION_SECRET || 'development-only-secret',
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -50,6 +50,26 @@ app.post("/api/login", async (req, res) => {
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: "Server Error" });
+  }
+});
+
+app.get("/api/accounts", async (req, res) => {
+  if (!req.session.userId) {
+    return res.status(401).json({ error: "Sign in to view your accounts." });
+  }
+
+  try {
+    const { rows } = await db.query(
+      `SELECT account_number, routing_number, account_name, account_type, balance
+       FROM accounts
+       WHERE user_id = $1
+       ORDER BY account_type, account_name, account_number, routing_number`,
+      [req.session.userId]
+    );
+    return res.json({ accounts: rows });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Could not load your accounts." });
   }
 });
 
